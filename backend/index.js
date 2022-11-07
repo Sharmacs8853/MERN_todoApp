@@ -1,5 +1,6 @@
 const express = require('express');
 require("dotenv").config();
+const cors = require("cors");
 const { connection } = require("./config/db");
 const userModel = require('./models/UserModel');
 const jwt = require("jsonwebtoken");
@@ -7,6 +8,7 @@ const bcrypt = require("bcrypt");
 const { authentication } = require('./middleware/authentication');
 const todoModel = require('./models/todoModel');
 const app = express();
+app.use(cors())
 app.use(express.json());
 const PORT = process.env.PORT || 8080;
 
